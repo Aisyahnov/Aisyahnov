@@ -1,11 +1,10 @@
 <h1 align="center">Hi 👋, I'm Aisyah Noviani</h1>
-<h3 align="center">A passionate with Big Data and frontend</h3>
+<h3 align="center">A passionate with Technology</h3>
 
 <p align="left"> 
 <img src="https://komarev.com/ghpvc/?username=Aisyahnov&label=Profile%20views&color=0e75b6&style=flat" alt="Aisyahnov" /> 
 </p>
 
-- 🌱 I’m currently learning **Laravel and Deep Learning**
 - 📝 I regularly write articles on [Official Website Telkom University ](https://smb.telkomuniversity.ac.id/)
 - 📫 How to reach me **aisyah.noviani0x1@gmail.com**
 - ⚡ Fun fact **I think I'm curious about everything tech**
