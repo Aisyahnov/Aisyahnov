@@ -30,7 +30,10 @@
 <br>
 <br>
 <h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
-<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
+<p><img src="https://cdn.simpleicons.org/python" width="42" alt="Python" /> <img src="https://cdn.simpleicons.org/openjdk" width="42" alt="Java" /> <img src="https://cdn.simpleicons.org/javascript" width="42" alt="JavaScript" /> <img src="https://cdn.simpleicons.org/typescript" width="42" alt="TypeScript" /> <img src="https://cdn.simpleicons.org/dart" width="42" alt="Dart" /> <img src="https://cdn.simpleicons.org/php" width="42" alt="PHP" /></p>
+<p><img src="https://cdn.simpleicons.org/laravel" width="42" alt="Laravel" /> <img src="https://cdn.simpleicons.org/flutter" width="42" alt="Flutter" /> <img src="https://cdn.simpleicons.org/tensorflow" width="42" alt="TensorFlow" /> <img src="https://cdn.simpleicons.org/pytorch" width="42" alt="PyTorch" /> <img src="https://cdn.simpleicons.org/pandas" width="42" alt="Pandas" /> <img src="https://cdn.simpleicons.org/numpy" width="42" alt="NumPy" /></p>
+<p><img src="https://cdn.simpleicons.org/mysql" width="42" alt="MySQL" /> <img src="https://cdn.simpleicons.org/postgresql" width="42" alt="PostgreSQL" /> <img src="https://cdn.simpleicons.org/sqlite" width="42" alt="SQLite" /> <img src="https://cdn.simpleicons.org/mongodb" width="42" alt="MongoDB" /> <img src="https://cdn.simpleicons.org/oracle" width="42" alt="Oracle" /> <img src="https://cdn.simpleicons.org/pentaho" width="42" alt="Pentaho" /></p>
+<p><img src="https://cdn.simpleicons.org/git" width="42" alt="Git" /> <img src="https://cdn.simpleicons.org/github" width="42" alt="GitHub" /> <img src="https://cdn.simpleicons.org/visualstudiocode" width="42" alt="VS Code" /> <img src="https://cdn.simpleicons.org/jupyter" width="42" alt="Jupyter" /> <img src="https://cdn.simpleicons.org/postman" width="42" alt="Postman" /> <img src="https://cdn.simpleicons.org/figma" width="42" alt="Figma" /> <img src="https://cdn.simpleicons.org/android" width="42" alt="Android Studio" /> <img src="https://cdn.simpleicons.org/burpsuite" width="42" alt="Burp Suite" /></p>
 
 </div>
 
