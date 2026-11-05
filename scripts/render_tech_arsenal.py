@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Render Aisyahnov's selected animated tech stack."""
-import os\nimport html
+import os
+import html
 sections=[
  ("Languages",["Python","Java","JavaScript","Dart","PHP","SQL","HTML","CSS"],"#58a6ff"),
  ("Developer Focus",["Open-source Learner","Full-stack Web Developer","Data Engineer","IT Security","Data & AI"],"#39d353"),
