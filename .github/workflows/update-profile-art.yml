@@ -31,7 +31,6 @@ jobs:
           python scripts/render_heatmap_svg.py
           python scripts/make_ascii_svg.py
           python scripts/render_stats_svg.py
-          python scripts/render_activity_svg.py
           python scripts/render_tech_arsenal.py
         env:
           GITHUB_USERNAME: Aisyahnov
@@ -39,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/contributions.json source-prepped.png contrib-heatmap.svg ascii-portrait.svg stats.svg activity-overview.svg tech-arsenal.svg
+          git add data/contributions.json source-prepped.png contrib-heatmap.svg ascii-portrait.svg stats.svg tech-arsenal.svg
           if git diff --cached --quiet; then
             echo "Profile art is already up to date."
           else
