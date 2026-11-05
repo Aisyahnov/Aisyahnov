@@ -5,7 +5,7 @@
 
 <br><br>
 
-<h3><code>Aisyahnov@github ~ $ whoami</code></h3>
+<h3><code>Aisyahnov@github ~ $ ./activity.sh</code></h3>\n<img src="./activity-overview.svg" alt="Animated activity overview for Aisyahnov" width="880" />\n\n<br><br>\n\n<h3><code>Aisyahnov@github ~ $ whoami</code></h3>
 <table align="center">
   <tr>
     <td valign="middle"><img src="./ascii-portrait.svg" alt="Animated ASCII portrait made from my GitHub avatar" width="420" /></td>
