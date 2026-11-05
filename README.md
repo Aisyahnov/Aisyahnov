@@ -1,8 +1,5 @@
 <div align="center">
 
-<img src="./contrib-heatmap.svg" alt="Animated GitHub contribution heatmap" width="860" />
-
-<br><br>
 
 
 
