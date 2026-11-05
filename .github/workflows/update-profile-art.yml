@@ -29,7 +29,7 @@ jobs:
           python scripts/fetch_contributions.py
           python scripts/fetch_avatar.py
           python scripts/render_heatmap_svg.py
-          python scripts/make_ascii_svg.py
+          python scripts/make_ascii_svg.py source-prepped.png ascii-portrait.svg
           python scripts/render_stats_svg.py
           python scripts/render_tech_arsenal.py
         env:
