@@ -1,26 +1,20 @@
 #!/usr/bin/env python3
-"""Render Aisyahnov's selected animated tech stack."""
-import os
-import html
-sections=[
- ("Languages",["Python","Java","JavaScript","Dart","PHP","SQL","HTML","CSS"],"#58a6ff"),
- ("Developer Focus",["Open-source Learner","Full-stack Web Developer","Data Engineer","IT Security","Data & AI"],"#39d353"),
- ("Data & AI",["TensorFlow","PyTorch","Scikit-learn","Pandas","NumPy","Matplotlib","Seaborn","Streamlit"],"#bc8cff"),
- ("Databases",["MySQL","PostgreSQL","SQLite","MongoDB","SQL Server","Oracle"],"#f0883e"),
- ("Data Engineering & BI",["Pentaho"],"#22d3ee"),
- ("Frameworks & Tools",["Laravel","Flutter","Git","GitHub","VS Code","Jupyter Notebook","Google Colab","Postman","Figma","Android Studio","Burp Suite"],"#d29922"),
+"""Render an icon-only animated tech stack for Aisyahnov."""
+import os, html
+groups=[
+ ["Python","Java","JavaScript","TypeScript","Dart","PHP","SQL","HTML","CSS"],
+ ["TensorFlow","PyTorch","Scikit-learn","Pandas","NumPy","Matplotlib","Seaborn","Streamlit"],
+ ["MySQL","PostgreSQL","SQLite","MongoDB","SQL Server","Oracle","Pentaho"],
+ ["Laravel","Flutter","Git","GitHub","VS Code","Jupyter Notebook","Google Colab","Postman","Figma","Android Studio","Burp Suite"],
 ]
-w=900; row_h=58; h=62+len(sections)*row_h+24
-p=['<svg xmlns="http://www.w3.org/2000/svg" width="'+str(w)+'" height="'+str(h)+'" viewBox="0 0 '+str(w)+' '+str(h)+'" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"><style>.pill{opacity:0;animation:in .45s cubic-bezier(.22,1,.36,1) both}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.pill{opacity:1;animation:none}}</style><rect x=".5" y=".5" width="'+str(w-1)+'" height="'+str(h-1)+'" rx="12" fill="#0d1117" stroke="#30363d"/><text x="24" y="38" fill="#22d3ee" font-size="21" font-weight="700">▸ Tech Arsenal</text><line x1="24" y1="52" x2="'+str(w-24)+'" y2="52" stroke="#30363d"/>']
-for ri,(title,badges,color) in enumerate(sections):
- y=84+ri*row_h
- p.append(f'<text x="24" y="{y}" fill="#c9d1d9" font-size="15" font-weight="700">{title.replace("&", "&amp;")}</text>')
- x=180
- for i,b in enumerate(badges):
-  logo={'Python':'Py','Java':'☕','JavaScript':'JS','TypeScript':'TS','Dart':'D','PHP':'PHP','SQL':'SQL','HTML':'<>','CSS':'#','TensorFlow':'TF','PyTorch':'PT','Scikit-learn':'SK','Pandas':'Pd','NumPy':'Np','Matplotlib':'Mt','Seaborn':'Sb','Streamlit':'St','Laravel':'L','Flutter':'F','Git':'Git','GitHub':'GH','VS Code':'VS','Jupyter Notebook':'Jn','Google Colab':'Co','Postman':'Po','Figma':'Fi','Android Studio':'AS','Burp Suite':'Bu','Pentaho':'P'} .get(b,b[:2]).replace('&','&amp;')
-  bw=max(72,len(b)*7+30)
-  if x+bw>875: x=180; y+=32
-  p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw+22}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{html.escape(b)}</text></g>')
-  x+=bw+31
+icons={'Python':'Py','Java':'☕','JavaScript':'JS','TypeScript':'TS','Dart':'D','PHP':'PHP','SQL':'SQL','HTML':'<>','CSS':'#','TensorFlow':'TF','PyTorch':'PT','Scikit-learn':'SK','Pandas':'Pd','NumPy':'Np','Matplotlib':'Mt','Seaborn':'Sb','Streamlit':'St','MySQL':'MY','PostgreSQL':'PG','SQLite':'SQ','MongoDB':'MO','SQL Server':'MS','Oracle':'OR','Pentaho':'P','Laravel':'L','Flutter':'F','Git':'Git','GitHub':'GH','VS Code':'VS','Jupyter Notebook':'Jn','Google Colab':'Co','Postman':'Po','Figma':'Fi','Android Studio':'AS','Burp Suite':'Bu'}
+colors=['#58a6ff','#bc8cff','#f0883e','#22d3ee']
+cell=58; gap=12; cols=11; rows=sum((len(g)+cols-1)//cols for g in groups); w=cols*(cell+gap)+24; h=rows*(cell+gap)+24
+p=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><style>.i{opacity:0;animation:in .45s cubic-bezier(.22,1,.36,1) both}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.8)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.i{opacity:1;animation:none}}</style><rect width="{w}" height="{h}" rx="12" fill="#0d1117" stroke="#30363d"/>']
+n=0
+for gi,g in enumerate(groups):
+ for j,name in enumerate(g):
+  idx=n; x=12+(idx%cols)*(cell+gap); y=12+(idx//cols)*(cell+gap); color=colors[gi]; label=html.escape(icons.get(name,name[:2]))
+  p.append(f'<g class="i" style="animation-delay:{idx*.045:.2f}s"><title>{html.escape(name)}</title><rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="12" fill="#161b22" stroke="{color}" stroke-width="2"/><text x="{x+cell/2}" y="{y+36}" text-anchor="middle" fill="{color}" font-family="ui-monospace,monospace" font-size="16" font-weight="700">{label}</text></g>'); n+=1
 p.append('</svg>')
 open(os.path.join(os.path.dirname(__file__),'..','tech-arsenal.svg'),'w').write(''.join(p))
