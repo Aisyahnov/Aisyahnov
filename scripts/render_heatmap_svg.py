@@ -59,9 +59,14 @@ def main() -> None:
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
         f'font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12">',
         "<style>"
-        ".c{opacity:0;animation:drop .5s ease-out forwards}"
-        "@keyframes drop{from{opacity:0;transform:translate(-6px,-6px)}"
-        "to{opacity:1;transform:none}}"
+        ".c{transform-box:fill-box;transform-origin:center;opacity:0;"
+        "animation:pop .55s ease-out both,flash .70s ease-out both}"
+        "@keyframes pop{0%{opacity:0;transform:scale(.2)}"
+        "60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}"
+        "@keyframes flash{0%{filter:brightness(2.4)}45%{filter:brightness(2.4)}"
+        "100%{filter:brightness(1)}}"
+        "@media (prefers-reduced-motion:reduce){.c{opacity:1!important;"
+        "animation:none!important;filter:none!important}}"
         "</style>",
         f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="8" fill="{BG}" stroke="{BORDER}"/>',
     ]
@@ -108,3 +113,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
