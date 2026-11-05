@@ -23,14 +23,16 @@
 <a href="mailto:aisyah.noviani0x1@gmail.com"><img src="https://img.shields.io/badge/Email-say%20hello-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
 <a href="https://www.kaggle.com/aisyahnoviani"><img src="https://img.shields.io/badge/Kaggle-Aisyah%20Noviani-20BEFF?style=flat-square&logo=kaggle&logoColor=white" alt="Kaggle Aisyah Noviani" /></a>
 
-<br>
-<h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
-<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
-
 <br><br>
 
 <br><br>
 <img src="https://komarev.com/ghpvc/?username=Aisyahnov&label=profile%20views&color=39d353&style=flat-square" alt="Profile views" />
+
+<br>
+<br>
+<h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
+<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
+
 </div>
 
 <!--
