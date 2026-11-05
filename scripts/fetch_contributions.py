@@ -77,6 +77,7 @@ def main() -> None:
         "monthly": monthly,
         "days": days,
     }
+    os.makedirs("data", exist_ok=True)
     with open("data/contributions.json", "w") as f:
         json.dump(out, f, indent=1)
     print(f"wrote data/contributions.json — {total} contributions across {len(days)} days")
