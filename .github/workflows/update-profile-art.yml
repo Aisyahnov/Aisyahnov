@@ -32,6 +32,9 @@ jobs:
           python scripts/make_ascii_svg.py source-prepped.png ascii-portrait.svg
           python scripts/render_stats_svg.py
           python scripts/render_tech_arsenal.py
+        env:
+          GITHUB_USERNAME: Aisyahnov
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
       - name: Commit refreshed art
         run: |
           git config user.name "github-actions[bot]"
