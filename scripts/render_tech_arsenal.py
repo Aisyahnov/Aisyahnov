@@ -10,7 +10,7 @@ groups=[
 icons={'Python':'Py','Java':'☕','JavaScript':'JS','TypeScript':'TS','Dart':'D','PHP':'PHP','SQL':'SQL','HTML':'<>','CSS':'#','TensorFlow':'TF','PyTorch':'PT','Scikit-learn':'SK','Pandas':'Pd','NumPy':'Np','Matplotlib':'Mt','Seaborn':'Sb','Streamlit':'St','MySQL':'MY','PostgreSQL':'PG','SQLite':'SQ','MongoDB':'MO','SQL Server':'MS','Oracle':'OR','Pentaho':'P','Laravel':'L','Flutter':'F','Git':'Git','GitHub':'GH','VS Code':'VS','Jupyter Notebook':'Jn','Google Colab':'Co','Postman':'Po','Figma':'Fi','Android Studio':'AS','Burp Suite':'Bu'}
 colors=['#58a6ff','#bc8cff','#f0883e','#22d3ee']
 cell=58; gap=12; cols=11; rows=sum((len(g)+cols-1)//cols for g in groups); w=cols*(cell+gap)+24; h=rows*(cell+gap)+24
-p=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><style>.i{opacity:0;animation:in .45s cubic-bezier(.22,1,.36,1) both}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.8)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.i{opacity:1;animation:none}}</style><rect width="{w}" height="{h}" rx="12" fill="#0d1117" stroke="#30363d"/>']
+p=['<svg xmlns="http://www.w3.org/2000/svg" width="'+str(w)+'" height="'+str(h)+'" viewBox="0 0 '+str(w)+' '+str(h)+'"><style>.i{opacity:0;animation:in .45s cubic-bezier(.22,1,.36,1) both}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.8)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.i{opacity:1;animation:none}}</style><rect width="'+str(w)+'" height="'+str(h)+'" rx="12" fill="#0d1117" stroke="#30363d"/>']
 n=0
 for gi,g in enumerate(groups):
  for j,name in enumerate(g):
