@@ -23,7 +23,11 @@ OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.
 
 
 def fetch_days():
-    token = os.environ.get("PROFILE_TOKEN")\n    headers = {"User-Agent": "Aisyahnov-profile-art"}\n    if token:\n        headers["Authorization"] = f"Bearer {token}"\n    resp = requests.get(URL, headers=headers, timeout=30)
+    token = os.environ.get("PROFILE_TOKEN")
+    headers = {"User-Agent": "Aisyahnov-profile-art"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    resp = requests.get(URL, headers=headers, timeout=30)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
 
