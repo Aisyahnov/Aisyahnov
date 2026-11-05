@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="908" height="196" viewBox="0 0 908 196" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12">
-<style>.c{opacity:0;animation:drop .5s ease-out forwards}@keyframes drop{from{opacity:0;transform:translate(-6px,-6px)}to{opacity:1;transform:none}}</style>
+<style>.c{transform-box:fill-box;transform-origin:center;opacity:0;animation:pop .55s ease-out both,flash .70s ease-out both}@keyframes pop{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}@keyframes flash{0%{filter:brightness(2.4)}45%{filter:brightness(2.4)}100%{filter:brightness(1)}}@media (prefers-reduced-motion:reduce){.c{opacity:1!important;animation:none!important;filter:none!important}}</style>
 <rect x="0.5" y="0.5" width="907" height="195" rx="8" fill="#0d1117" stroke="#30363d"/>
 <text x="46" y="24" fill="#8b949e">Nov</text>
 <text x="110" y="24" fill="#8b949e">Dec</text>
@@ -385,8 +385,8 @@
 <rect class="c" style="animation-delay:0.583s" x="878" y="54" width="13" height="13" rx="3" fill="#161b22"/>
 <rect class="c" style="animation-delay:0.594s" x="878" y="70" width="13" height="13" rx="3" fill="#161b22"/>
 <rect class="c" style="animation-delay:0.605s" x="878" y="86" width="13" height="13" rx="3" fill="#0e4429"/>
-<rect class="c" style="animation-delay:0.616s" x="878" y="102" width="13" height="13" rx="3" fill="#0e4429"/>
-<text x="46" y="180" fill="#c9d1d9">84 contributions in the last year · 2-day streak</text>
+<rect class="c" style="animation-delay:0.616s" x="878" y="102" width="13" height="13" rx="3" fill="#26a641"/>
+<text x="46" y="180" fill="#c9d1d9">88 contributions in the last year · 2-day streak</text>
 <text x="696" y="180" fill="#8b949e">Less</text>
 <rect x="736" y="169" width="13" height="13" rx="3" fill="#161b22"/>
 <rect x="752" y="169" width="13" height="13" rx="3" fill="#0e4429"/>
