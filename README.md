@@ -17,16 +17,16 @@
 
 <br>
 
-<br>
-<h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
-<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
-
-<br><br>
 <h3><code>Aisyahnov@github ~ $ ./links.sh</code></h3>
 <a href="https://www.linkedin.com/in/aisyahnoviani"><img src="https://img.shields.io/badge/LinkedIn-Aisyah%20Noviani-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://www.instagram.com/aissync_"><img src="https://img.shields.io/badge/Instagram-aissync_-E4405F?style=flat-square&logo=instagram&logoColor=white" alt="Instagram" /></a>
 <a href="mailto:aisyah.noviani0x1@gmail.com"><img src="https://img.shields.io/badge/Email-say%20hello-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
 <a href="https://www.kaggle.com/aisyahnoviani"><img src="https://img.shields.io/badge/Kaggle-Aisyah%20Noviani-20BEFF?style=flat-square&logo=kaggle&logoColor=white" alt="Kaggle Aisyah Noviani" /></a>
+<br>
+<h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
+<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
+
+<br><br>
 
 <br><br>
 <img src="https://komarev.com/ghpvc/?username=Aisyahnov&label=profile%20views&color=39d353&style=flat-square" alt="Profile views" />
