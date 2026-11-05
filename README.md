@@ -6,7 +6,7 @@
 <br><br>
 
 <h3><code>Aisyahnov@github ~ $ ./tech-arsenal.sh</code></h3>
-<img src="./tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
+<img src="https://raw.githubusercontent.com/Aisyahnov/Aisyahnov/main/tech-arsenal.svg" alt="Animated personalized tech arsenal for Aisyahnov" width="880" />
 
 <br><br>
 
