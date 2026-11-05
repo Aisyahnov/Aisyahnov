@@ -13,7 +13,7 @@ w=900; row_h=58; h=62+len(sections)*row_h+24
 p=['<svg xmlns="http://www.w3.org/2000/svg" width="'+str(w)+'" height="'+str(h)+'" viewBox="0 0 '+str(w)+' '+str(h)+'" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"><style>.pill{opacity:0;animation:in .45s cubic-bezier(.22,1,.36,1) both}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.pill{opacity:1;animation:none}}</style><rect x=".5" y=".5" width="'+str(w-1)+'" height="'+str(h-1)+'" rx="12" fill="#0d1117" stroke="#30363d"/><text x="24" y="38" fill="#22d3ee" font-size="21" font-weight="700">▸ Tech Arsenal</text><line x1="24" y1="52" x2="'+str(w-24)+'" y2="52" stroke="#30363d"/>']
 for ri,(title,badges,color) in enumerate(sections):
  y=84+ri*row_h
- p.append(f'<text x="24" y="{y}" fill="#c9d1d9" font-size="15" font-weight="700">{title}</text>')
+ p.append(f'<text x="24" y="{y}" fill="#c9d1d9" font-size="15" font-weight="700">{title.replace("&", "&amp;")}</text>')
  x=180
  for i,b in enumerate(badges):
   bw=max(72,len(b)*7+30)
