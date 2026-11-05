@@ -21,7 +21,7 @@ W = 520
 LINE_H = 27
 STAGGER = 0.28
 
-TITLE = "aisyah@github"
+TITLE = "Aisyahnov@github"
 ROWS = [
     ("", ""),
     ("Name", "Aisyah Noviani"),
@@ -41,9 +41,16 @@ def main() -> None:
     lines = len(ROWS) - blanks
     H = round(106 + blanks * LINE_H * 0.45 + lines * LINE_H + 6 + 16 + 24)
     anim_css = "" if static else (
-        ".ln{opacity:0;transform:translateX(-8px);"
-        "animation:in .45s ease-out forwards}"
-        "@keyframes in{to{opacity:1;transform:none}}"
+        ".ln{opacity:0;transform:translateY(12px) scale(.98);"
+        "transform-box:fill-box;transform-origin:center;"
+        "animation:in .55s cubic-bezier(.22,1,.36,1) forwards}"
+        "@keyframes in{0%{opacity:0;transform:translateY(12px) scale(.98)}"
+        "70%{opacity:1;transform:translateY(-2px) scale(1.01)}"
+        "100%{opacity:1;transform:none}}"
+        ".cursor{animation:blink 1s steps(2,start) infinite}"
+        "@keyframes blink{50%{opacity:0}}"
+        "@media (prefers-reduced-motion:reduce){.ln{opacity:1!important;"
+        "transform:none!important;animation:none!important}.cursor{animation:none}}"
     )
 
     parts = [
@@ -63,7 +70,7 @@ def main() -> None:
     delay = 0.15
     parts.append(
         f'<g class="ln" style="animation-delay:{delay:.2f}s">'
-        f'<text x="24" y="{y}" fill="{ACCENT}">{TITLE}</text>'
+        f'<text x="24" y="{y}" fill="{ACCENT}">{TITLE}<tspan class="cursor" fill="{KEY}">▋</tspan></text>'
         f'<text x="24" y="{y + 16}" fill="{DIM}">{"-" * len(TITLE)}</text></g>'
     )
     y += 34
@@ -105,3 +112,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
