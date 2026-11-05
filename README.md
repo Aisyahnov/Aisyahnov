@@ -1,6 +1,5 @@
 <div align="center">
 
-<h3><code>Aisyahnov@github ~ $ ./contributions.sh</code></h3>
 <img src="./contrib-heatmap.svg" alt="Animated GitHub contribution heatmap" width="860" />
 
 <br><br>
