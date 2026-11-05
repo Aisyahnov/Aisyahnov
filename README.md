@@ -37,6 +37,15 @@
 <br>
 
 <h3><code>Aisyahnov@github ~ $ ./tech.sh</code></h3>
+
+<p><b>Languages:</b> Python · Java · JavaScript · Dart · PHP · SQL · HTML · CSS</p>
+<p><b>Developer Focus:</b> Open-source Learner · Full-stack Web Developer · Data Engineer · IT Security · Data &amp; AI</p>
+<p><b>Frameworks:</b> Laravel · Flutter</p>
+<p><b>Data &amp; AI:</b> TensorFlow · PyTorch · Scikit-learn · Pandas · NumPy · Matplotlib · Seaborn · Streamlit</p>
+<p><b>Databases:</b> MySQL · PostgreSQL · SQLite · MongoDB · SQL Server · Oracle</p>
+<p><b>Data Engineering &amp; BI:</b> Pentaho</p>
+<p><b>Tools:</b> Git · GitHub · VS Code · Jupyter Notebook · Google Colab · Postman · Figma · Android Studio · Burp Suite</p>
+
 <p>
 <img src="https://cdn.simpleicons.org/python" width="42" alt="Python" /> <img src="https://cdn.simpleicons.org/openjdk" width="42" alt="Java" /> <img src="https://cdn.simpleicons.org/javascript" width="42" alt="JavaScript" /> <img src="https://cdn.simpleicons.org/typescript" width="42" alt="TypeScript" /> <img src="https://cdn.simpleicons.org/dart" width="42" alt="Dart" /> <img src="https://cdn.simpleicons.org/php" width="42" alt="PHP" /> <img src="https://cdn.simpleicons.org/laravel" width="42" alt="Laravel" /> <img src="https://cdn.simpleicons.org/flutter" width="42" alt="Flutter" />
 </p>
@@ -46,7 +55,6 @@
 <p>
 <img src="https://cdn.simpleicons.org/git" width="42" alt="Git" /> <img src="https://cdn.simpleicons.org/github" width="42" alt="GitHub" /> <img src="https://cdn.simpleicons.org/visualstudiocode" width="42" alt="VS Code" /> <img src="https://cdn.simpleicons.org/jupyter" width="42" alt="Jupyter" /> <img src="https://cdn.simpleicons.org/postman" width="42" alt="Postman" /> <img src="https://cdn.simpleicons.org/figma" width="42" alt="Figma" /> <img src="https://cdn.simpleicons.org/android" width="42" alt="Android Studio" /> <img src="https://cdn.simpleicons.org/burpsuite" width="42" alt="Burp Suite" />
 </p>
-
 </div>
 
 <!--
