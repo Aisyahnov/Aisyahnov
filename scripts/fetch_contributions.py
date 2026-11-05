@@ -1,88 +1,123 @@
 #!/usr/bin/env python3
-"""Fetch the public contribution calendar — no token needed.
-
-GitHub serves the calendar as public HTML at
-https://github.com/users/<username>/contributions (the same fragment the
-profile page uses). Parse day cells + tooltips, derive stats, write
-data/contributions.json.
 """
-import datetime as dt
+Scrape real daily contribution counts from GitHub's public, unauthenticated
+contributions endpoint (the same fragment the profile page itself uses) and
+write data/contributions.json with the raw days plus derived stats
+(current streak, longest streak, best day, monthly totals).
+
+No token, no auth, no GraphQL -- just the public HTML GitHub already serves.
+Run daily by .github/workflows/update-profile-art.yml.
+"""
+import datetime
 import json
+import os
 import re
+import sys
 
 import requests
 from bs4 import BeautifulSoup
 
-import os
-
-USERNAME = os.environ.get("GITHUB_USERNAME", "octocat")
+USERNAME = os.environ.get("GH_PROFILE_USER", "Aisyahnov")
 URL = f"https://github.com/users/{USERNAME}/contributions"
+OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.json")
 
 
-def main() -> None:
-    resp = requests.get(URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+def fetch_days():
+    resp = requests.get(URL, headers={"User-Agent": "profile-readme-bot/1.0"}, timeout=30)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    # Tooltips carry the counts: "3 contributions on July 4th." / "No contributions on ..."
-    counts = {}
-    for tip in soup.select("tool-tip"):
-        target = tip.get("for", "")
-        m = re.match(r"(\d+|No) contribution", tip.get_text(strip=True))
-        if m and target:
-            counts[target] = 0 if m.group(1) == "No" else int(m.group(1))
+    cells = soup.select("td.ContributionCalendar-day")
+    if not cells:
+        print("no calendar cells found -- github markup may have changed", file=sys.stderr)
+        sys.exit(1)
 
     days = []
-    for td in soup.select("td.ContributionCalendar-day[data-date]"):
-        date = td["data-date"]
-        level = int(td.get("data-level", 0))
-        count = counts.get(td.get("id", ""), 0)
-        if count == 0 and level > 0:
-            # tooltip missing/unparsed: estimate from level so totals stay sane
-            count = level
-        days.append({"date": date, "count": count, "level": level})
-    days.sort(key=lambda d: d["date"])
-    if not days:
-        raise SystemExit("no day cells parsed — GitHub markup may have changed")
-
-    total = sum(d["count"] for d in days)
-    best = max(days, key=lambda d: d["count"])
-
-    # streaks (a day counts if count > 0); current streak may still be alive today
-    longest = cur = 0
-    for d in days:
-        cur = cur + 1 if d["count"] > 0 else 0
-        longest = max(longest, cur)
-    current = 0
-    today = dt.date.today().isoformat()
-    for d in reversed(days):
-        if d["date"] > today:
+    for td in cells:
+        date = td.get("data-date")
+        if not date:
             continue
+        td_id = td.get("id")
+        tooltip_el = soup.find("tool-tip", attrs={"for": td_id}) if td_id else None
+        text = tooltip_el.get_text(strip=True) if tooltip_el else ""
+        if re.search(r"no contributions", text, re.I):
+            count = 0
+        else:
+            m = re.match(r"(\d+)", text)
+            count = int(m.group(1)) if m else 0
+        days.append({"date": date, "count": count, "level": int(td.get("data-level") or 0)})
+
+    days.sort(key=lambda d: d["date"])
+    return days
+
+
+def compute_current_streak(days):
+    idx = len(days) - 1
+    if days[idx]["count"] == 0:
+        idx -= 1  # today isn't over yet -- don't break the streak on it
+    streak = 0
+    end_idx = idx
+    while idx >= 0 and days[idx]["count"] > 0:
+        streak += 1
+        idx -= 1
+    start_idx = idx + 1
+    if streak == 0:
+        return 0, None, None
+    return streak, days[start_idx]["date"], days[end_idx]["date"]
+
+
+def compute_longest_streak(days):
+    longest = run = 0
+    longest_start = longest_end = None
+    run_start_idx = None
+    for i, d in enumerate(days):
         if d["count"] > 0:
-            current += 1
-        elif d["date"] != today:  # an empty today doesn't break the streak yet
-            break
+            if run == 0:
+                run_start_idx = i
+            run += 1
+            if run > longest:
+                longest = run
+                longest_start = days[run_start_idx]["date"]
+                longest_end = days[i]["date"]
+        else:
+            run = 0
+    return longest, longest_start, longest_end
+
+
+def build_data(days):
+    total = sum(d["count"] for d in days)
+    active_days = sum(1 for d in days if d["count"] > 0)
+    best = max(days, key=lambda d: d["count"])
+    cur_len, cur_start, cur_end = compute_current_streak(days)
+    long_len, long_start, long_end = compute_longest_streak(days)
 
     monthly = {}
     for d in days:
-        monthly[d["date"][:7]] = monthly.get(d["date"][:7], 0) + d["count"]
+        key = d["date"][:7]
+        monthly[key] = monthly.get(key, 0) + d["count"]
+    monthly_list = [{"month": k, "total": v} for k, v in sorted(monthly.items())]
 
-    out = {
+    return {
         "username": USERNAME,
-        "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "total": total,
+        "generated_at": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "range": {"start": days[0]["date"], "end": days[-1]["date"]},
+        "total_contributions": total,
+        "active_days": active_days,
+        "avg_per_active_day": round(total / active_days, 1) if active_days else 0,
+        "current_streak": {"length": cur_len, "start": cur_start, "end": cur_end},
+        "longest_streak": {"length": long_len, "start": long_start, "end": long_end},
         "best_day": {"date": best["date"], "count": best["count"]},
-        "current_streak": current,
-        "longest_streak": longest,
-        "monthly": monthly,
+        "monthly": monthly_list,
         "days": days,
     }
-    os.makedirs("data", exist_ok=True)
-    with open("data/contributions.json", "w") as f:
-        json.dump(out, f, indent=1)
-    print(f"wrote data/contributions.json — {total} contributions across {len(days)} days")
 
 
 if __name__ == "__main__":
-    main()
-
+    days = fetch_days()
+    data = build_data(days)
+    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
+    with open(OUT_PATH, "w") as f:
+        json.dump(data, f, indent=2)
+    print(f"wrote {OUT_PATH}: {data['total_contributions']} contributions, "
+          f"current streak {data['current_streak']['length']}, "
+          f"longest streak {data['longest_streak']['length']}")
