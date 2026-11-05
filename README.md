@@ -8,8 +8,8 @@
 <h3><code>Aisyahnov@github ~ $ whoami</code></h3>
 <table align="center">
   <tr>
-    <td valign="middle"><img src="./ascii-portrait.svg" alt="Animated ASCII portrait made from my GitHub avatar" width="350" /></td>
-    <td valign="middle"><img src="./info-card.svg" alt="Animated terminal profile card" width="500" /></td>
+    <td valign="middle"><img src="./ascii-portrait.svg" alt="Animated ASCII portrait made from my GitHub avatar" width="420" /></td>
+    <td valign="middle"><img src="./stats.svg" alt="Animated GitHub stats card" width="420" /></td>
   </tr>
 </table>
 
