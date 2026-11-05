@@ -27,3 +27,5 @@ def main():
  out={"username":USER,"generated_at":dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),"range":{"start":str(start),"end":str(end)},"total_contributions":total,"active_days":active,"avg_per_active_day":round(total/active,1) if active else 0,"current_streak":{"length":cur},"longest_streak":{"length":longest},"best_day":{"date":best["date"],"count":best["count"]},"monthly":[{"month":k,"total":v} for k,v in sorted(monthly.items())],"days":days}
  os.makedirs(os.path.dirname(OUT),exist_ok=True); json.dump(out,open(OUT,"w"),indent=2); print(f"wrote {total} authenticated contributions")
 if __name__=="__main__": main()
+
+# authenticated refresh
