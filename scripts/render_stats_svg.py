@@ -57,7 +57,7 @@ def short(d):
 
 
 def span(s):
-    return f'{short(s["start"])} – {short(s["end"])}' if s["length"] else "—"
+    return f'{short(s["start"])} – {short(s["end"])}' if s.get("length") and s.get("start") else "—"
 
 
 data = json.load(open(SRC))
