@@ -30,7 +30,6 @@ jobs:
           python scripts/fetch_avatar.py
           python scripts/render_heatmap_svg.py
           python scripts/make_ascii_svg.py
-          python scripts/make_ascii_svg.py
           python scripts/render_stats_svg.py
         env:
           GITHUB_USERNAME: Aisyahnov
