@@ -20,6 +20,6 @@ for ri,(title,badges,color) in enumerate(sections):
   bw=max(72,len(b)*7+30)
   if x+bw>875: x=180; y+=32
   p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw+22}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{html.escape(b)}</text></g>')
-  x+=bw+9
+  x+=bw+31
 p.append('</svg>')
 open(os.path.join(os.path.dirname(__file__),'..','tech-arsenal.svg'),'w').write(''.join(p))
