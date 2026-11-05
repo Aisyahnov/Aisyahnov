@@ -16,9 +16,10 @@ for ri,(title,badges,color) in enumerate(sections):
  p.append(f'<text x="24" y="{y}" fill="#c9d1d9" font-size="15" font-weight="700">{title.replace("&", "&amp;")}</text>')
  x=180
  for i,b in enumerate(badges):
+  logo={'Python':'Py','Java':'☕','JavaScript':'JS','TypeScript':'TS','Dart':'D','PHP':'PHP','SQL':'SQL','HTML':'<>','CSS':'#','TensorFlow':'TF','PyTorch':'PT','Scikit-learn':'SK','Pandas':'Pd','NumPy':'Np','Matplotlib':'Mt','Seaborn':'Sb','Streamlit':'St','Laravel':'L','Flutter':'F','Git':'Git','GitHub':'GH','VS Code':'VS','Jupyter Notebook':'Jn','Google Colab':'Co','Postman':'Po','Figma':'Fi','Android Studio':'AS','Burp Suite':'Bu','Pentaho':'P'} .get(b,b[:2]).replace('&','&amp;')
   bw=max(72,len(b)*7+30)
   if x+bw>875: x=180; y+=32
-  p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{html.escape(b)}</text></g>')
+  p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw+22}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{html.escape(b)}</text></g>')
   x+=bw+9
 p.append('</svg>')
 open(os.path.join(os.path.dirname(__file__),'..','tech-arsenal.svg'),'w').write(''.join(p))
