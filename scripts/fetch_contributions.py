@@ -10,7 +10,7 @@ def main():
  q="""query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){totalContributions restrictedContributionsCount contributionCalendar{weeks{contributionDays{date contributionCount contributionLevel}}}}}}"""
  res=requests.post("https://api.github.com/graphql",json={"query":q,"variables":{"login":USER,"from":start.isoformat()+"T00:00:00Z","to":end.isoformat()+"T23:59:59Z"}},headers={"Authorization":"bearer "+TOKEN,"User-Agent":"Aisyahnov-profile-art"},timeout=30)
  res.raise_for_status(); body=res.json()
- if body.get("errors"): raise SystemExit(str(body["errors"]))
+ if body.get("errors"):\n  print("GraphQL contribution query unavailable; keeping previous data:", body["errors"])\n  return
  c=body["data"]["user"]["contributionsCollection"]; days=[d for w in c["contributionCalendar"]["weeks"] for d in w["contributionDays"]]
  days=[{"date":d["date"],"count":d["contributionCount"],"level":0 if d["contributionCount"]==0 else min(5,d["contributionLevel"].count("FOUR")+d["contributionLevel"].count("THREE")+d["contributionLevel"].count("TWO")+1)} for d in days]
  total=c["totalContributions"]; active=sum(d["count"]>0 for d in days); best=max(days,key=lambda x:x["count"])
