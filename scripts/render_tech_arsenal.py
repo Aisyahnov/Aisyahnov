@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render Aisyahnov's selected animated tech stack."""
-import os
+import os\nimport html
 sections=[
  ("Languages",["Python","Java","JavaScript","Dart","PHP","SQL","HTML","CSS"],"#58a6ff"),
  ("Developer Focus",["Open-source Learner","Full-stack Web Developer","Data Engineer","IT Security","Data & AI"],"#39d353"),
@@ -18,7 +18,7 @@ for ri,(title,badges,color) in enumerate(sections):
  for i,b in enumerate(badges):
   bw=max(72,len(b)*7+30)
   if x+bw>875: x=180; y+=32
-  p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{b}</text></g>')
+  p.append(f'<g class="pill" style="animation-delay:{ri*.16+i*.055:.2f}s"><rect x="{x}" y="{y-19}" width="{bw}" height="28" rx="6" fill="#161b22" stroke="{color}"/><circle cx="{x+12}" cy="{y-5}" r="4" fill="{color}"/><text x="{x+22}" y="{y}" fill="#e6edf3" font-size="12">{html.escape(b)}</text></g>')
   x+=bw+9
 p.append('</svg>')
 open(os.path.join(os.path.dirname(__file__),'..','tech-arsenal.svg'),'w').write(''.join(p))
